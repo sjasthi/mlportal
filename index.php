@@ -209,7 +209,6 @@ $resource_keywords = "";
 $resource_links = "";
 $resource_user = "";
 
-$view_option = $_POST["viewOption"];
 
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 // establist connection with database
@@ -224,12 +223,12 @@ $result = $conn->query($sql);
 echo '<ul class= "resource-container">';
 while ($row = mysqli_fetch_assoc($result)) {
     $resource_id = $row["id"];
-    $resource_topic = $row["topics"];
-    $resource_description = $row["Description"];
-    $resource_type = $row["Type"];
+    $resource_topic = $row["topic"];
+    $resource_description = $row["description"];
+    $resource_type = $row["type"];
     $resource_keywords = $row["keywords"];
-    $resource_links = $row["Links"];
-    $resource_user = $row["userID"];
+    $resource_links = $row["link"];
+    $resource_user = $row["instructor_id"];
     echo '
         <li class="home-resource-row">
           <div class="home-resource-topic col-3">

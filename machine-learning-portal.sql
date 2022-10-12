@@ -54,7 +54,7 @@ INSERT INTO `instructor` (`instructor_id`, `username`, `password`, `display_name
 
 CREATE TABLE `resources` (
   `id` int NOT NULL AUTO_INCREMENT ,
-  `topics` varchar(100) DEFAULT NULL,
+  `topic` varchar(100) DEFAULT NULL,
   `description` varchar(2000) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
   `keywords` varchar(20) DEFAULT NULL,
