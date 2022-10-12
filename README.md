@@ -1,2 +1,2 @@
-# machine-learning-portal
-BEARS 499 Project
+# mlportal
+A portal for Machine Learning resources
