@@ -57,7 +57,7 @@ CREATE TABLE `resources` (
   `topic` varchar(100) DEFAULT NULL,
   `description` varchar(2000) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
-  `keywords` varchar(20) DEFAULT NULL,
+  `keywords` varchar(255) DEFAULT NULL,
   `link` varchar(500) DEFAULT NULL,
   `instructor_id` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
