@@ -21,6 +21,8 @@ require_once "connection.php";
     echo "New resource added successfully";
     $stmt->close();
     $conn->close();
+    header("Location: admin.php");
+      die;
  }
 
 
