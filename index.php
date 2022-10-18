@@ -78,7 +78,7 @@
             "processing": true,
             "ajax": "fetch_data.php",
             "columns": [
-                {data: 'topics'},
+                {data: 'topic'},
                 {data: 'description'},
                 {data: 'type'},
                 {data: 'keywords'},
