@@ -67,7 +67,7 @@ CREATE TABLE `resources` (
 -- Dumping data for table `resources`
 --
 
-INSERT INTO `resources` (`id`, `topics`, `description`, `type`, `keywords`, `link`, `instructor_id`) VALUES
+INSERT INTO `resources` (`id`, `topic`, `description`, `type`, `keywords`, `link`, `instructor_id`) VALUES
 (NULL, 'Gaussian Processes', 'a generic supervised learning method designed to solve regression and probabilistic classification problems.', 
 'Supervised Learning', 'GPR', 'https://scikit-learn.org/stable/modules/gaussian_process.html#:~:text=Gaussian%20Processes%20(GP)%20are%20a,at%20least%20for%20regular%20kernels).', '1'),
 (NULL, 'Naive Bayes', 'Is a classification algorithm that uses Bayes theorem', 'Supervised Learning', 
