@@ -13,6 +13,12 @@
       <a href="get-help.php" rel="noreferrer noopener" class="home-link2">
         Get Help
       </a>
+
+      <form method="POST">
+        <label>Search</label>
+        <input type="text" name="search">
+        <input type="submit" name="submit">
+      </form>
       
       <a href="login.php">
         <button type="button" class="home-button button" class="login-button">Login</button></a>
@@ -20,3 +26,11 @@
         <button type="button" class="admin-button">Admin</button>
       </a>
     </header>
+
+    <?php
+
+    require_once "connection.php";
+
+    if(isset($_POST))
+
+    ?>
