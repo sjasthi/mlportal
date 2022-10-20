@@ -14,7 +14,7 @@
         Get Help
       </a>
 
-      <form method="POST">
+      <form action="search-results.php" method="POST">
         <label>Search</label>
         <input type="text" name="search">
         <input type="submit" name="submit">
@@ -26,11 +26,3 @@
         <button type="button" class="admin-button">Admin</button>
       </a>
     </header>
-
-    <?php
-
-    require_once "connection.php";
-
-    if(isset($_POST))
-
-    ?>
