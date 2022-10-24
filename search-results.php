@@ -1,3 +1,13 @@
+<?php
+  include "connection.php";
+  include "header.php"
+
+  //if(!isset($_POST['search'])){
+    //header("Location:index.php");
+  //}
+ 
+?>
+
 <!DOCTYPE html>
 <html lang="en" style="background-color: #1c1c1c">
 
@@ -25,8 +35,6 @@
  }
   </style>
 </head>
-
- <?php include "header.php" ?>
 
  <div class="resource-buttons">
     <a href="add-resource.php">

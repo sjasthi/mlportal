@@ -1,5 +1,11 @@
 <?php
-require_once "connection.php";
+
+
+  include "connection.php";
+
+
+ 
+
 $resource_id = "";
 $resource_topic = "";
 $resource_description = "";
@@ -17,9 +23,12 @@ if ($conn->connect_error) {
 $conn->set_charset("utf8");
 //create sql
 
-$keywords = $_POST['search'];
+    
 
-$sql = "SELECT * FROM resources WHERE topic LIKE '%$keywords%' OR description LIKE '%$keywords%' OR keywords LIKE '%$keywords%'";
+$search = $_POST['search'];
+
+
+$sql = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
 $result = $conn->query($sql);
 while ($row = mysqli_fetch_assoc($result)) {
     $array[] = $row;
@@ -32,5 +41,6 @@ $dataset = array(
 );
 
 echo json_encode($dataset);
+
 ?>
 
