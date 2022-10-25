@@ -37,7 +37,7 @@
     <label for="link">Resourse URL</label>
     <input id="link" class="input" type="url" name="link" required/><br><br>
 
-    <input type="submit" value="Submit" class="home-button"/>
+    <input type="submit" value="Submit" class="general-button"/>
 </form>
 </div>
 
