@@ -14,7 +14,7 @@
         Get Help
       </a>
 
-      <form action="search-resources.php" method="POST">
+      <form action="search-results.php" method="POST">
         <label>Search</label>
         <input type="text" name="search" value="<?php if(isset($_POST['search'])){echo $_POST['search'];}?>">
         <input type="submit" name="submit">

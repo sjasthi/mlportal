@@ -1,11 +1,24 @@
 <?php
-  include "connection.php";
-  include "header.php"
+  require_once "connection.php";
+  include "header.php";
 
   //if(!isset($_POST['search'])){
     //header("Location:index.php");
   //}
+
+  $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+// establist connection with database
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+//set charset to utf-8
+$conn->set_charset("utf8");
  
+  $search = $_POST['search'];
+  $query = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
+
+  $GLOBALS['data'] = mysqli_query($conn, $query);
+  
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +55,7 @@
 </div>   
 
     <h1>Search Results</h1>
-    <table id="searched-table" class="display" width="100%" cellspacing="0">
+    <table id="searchedTable" class="display" width="100%" cellspacing="0">
     <thead>
         <tr>
             <th style="color: white;">topic</th>
@@ -51,12 +64,34 @@
             <th style="color: white;">keywords</th>
         </tr>
     </thead>
+    <tbody>
+      <?php
+        if($data->num_rows > 0){
+          while($row = $data->fetch_assoc()){
+            $resource_topic = $row["topic"];
+            $resource_description = $row["description"];
+            $resource_type = $row["type"];
+            $resource_keywords = $row["keywords"];
+
+            echo '<tr>
+            <td>'.$row["topic"].'</td>
+            <td>'.$row["description"].'</td>
+            <td>'.$row["type"].'</td>
+            <td>'.$row["keywords"].'</td>
+            </tr>';
+
+            
+            
+          }//end while loop
+        }//end if statement
+      ?>
+    </tbody>
 </table>
+
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#searched-table').dataTable({
+        $('#searchedTable').dataTable({
             "processing": true,
-            "ajax": "search-resources.php",
             "columns": [
                 {data: 'topic'},
                 {data: 'description'},
@@ -66,5 +101,6 @@
         });
     });
     </script>
+
   </div>
 </html>
