@@ -28,34 +28,6 @@
 
  <?php include "header.php" ?>
 
- <div class="resource-buttons">
-    <a href="add-resource.php">
-        <button type="button" class="general-button">Add Resource</button></a>
-</div>   
-
-    <table id="resourceTable" class="display" width="100%" cellspacing="0">
-    <thead>
-        <tr>
-            <th style="color: white;">topic</th>
-            <th style="color: white;">description</th>
-            <th style="color: white;">type</th>
-            <th style="color: white;">keywords</th>
-        </tr>
-    </thead>
-</table>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#resourceTable').dataTable({
-            "processing": true,
-            "ajax": "fetch_data.php",
-            "columns": [
-                {data: 'topic'},
-                {data: 'description'},
-                {data: 'type'},
-                {data: 'keywords'},
-            ]
-        });
-    });
-    </script>
+ <h1 style="text-align:center;">Welcome To The Machine Learning Portal</h1>
   </div>
 </html>
