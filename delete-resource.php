@@ -10,25 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js" charset="utf8" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
-    <title>Admin Portal</title>
-    <style>
-        .crud_button {
-            font: bold 11px Arial;
-            text-decoration: none;
-            background-color: #EEEEEE;
-            color: #333333;
-            padding: 2px 6px 2px 6px;
-            border-top: 1px solid #CCCCCC;
-            border-right: 1px solid #333333;
-            border-bottom: 1px solid #333333;
-            border-left: 1px solid #CCCCCC;
-            margin: 10px;
-        }
-
-        .crud_button :hover {
-            color: #bdbdbd;
-        }
-    </style>
+    <title>Delete Resource</title>
 </head>
 
 <body>
@@ -55,7 +37,6 @@
         $conn->set_charset("utf8");
 
         //create sql
-
         $sql = "SELECT * FROM resources WHERE id={$resource_id}";
         $result = $conn->query($sql);
         while ($row = mysqli_fetch_assoc($result)) {
@@ -69,41 +50,6 @@
         }
     }
     ?>
-    <?php
-    //preparing delete statement
-    //     $sql = "DELETE FROM resources WHERE id = ?";
-
-    //     if($stmt = mysqli_prepare($con, $sql)){
-    //         //bind variables to prepared statement as parameters
-    //         mysqli_stmt_bind_param($stmt, "i", $param_id);
-
-    //         //set parameters
-    //         $param_id = trim($_POST["id"]);
-
-    //         //execute prepared statement
-    //         if(mysqli_stmt_execute($stmt)){
-    //             //resource deleted successfully + redirect to admin page
-    //             // header("location: admin.php");
-    //             exit();
-    //         } else{
-    //             echo "Error! Resource Could Not Be Deleted.";
-    //         }
-    //     }
-
-    //     //close statement
-    //     mysqli_close($con);
-
-    // }else{
-    //     //check existence of id parameter
-    //     if(empty(trim($_GET["id"]))){
-    //         //URL doesn't contain id parameter. Show error
-    //         // header("location: index.php");
-    //         exit();
-    //     }
-    // }
-
-    ?>
-
     <div class="add-resource-box" style="display: grid;">
         <h1>Modify a Resource</h1>
         <label for="topic">Topic</label>
@@ -116,16 +62,13 @@
         <div class="input"><?php echo $resource_keywords; ?></div></textarea><br><br>
 
         <label for="resource-type">Resource Type</label>
-        <div class="input"><?php echo $resource_type;?></div><br><br>
+        <div class="input"><?php echo $resource_type; ?></div><br><br>
 
         <label for="link">Resourse URL</label>
-        <div class="input"><?php echo $resource_links;?></div><br><br>
+        <div class="input"><?php echo $resource_links; ?></div><br><br>
 
         <button class="home-button" onclick="location.href='delete-query.php?id=<?php echo $resource_id; ?>';"> Delete </button>
     </div>
-
-
-
 </body>
 
 </html>
