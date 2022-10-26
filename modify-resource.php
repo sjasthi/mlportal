@@ -104,24 +104,35 @@
 
     ?>
 
-    <div class="add-resource-box" style="display: grid;">
-        <h1>Modify a Resource</h1>
-        <label for="topic">Topic</label>
-        <div class="input"><?php echo $resource_topic; ?></div><br><br>
+    <div class="add-resource-box">
+        <form action="modify-query.php?id=<?php echo $resource_id;?>" method="POST">
 
-        <label for="description">Description</label>
-        <div class="input"><?php echo $resource_description; ?></div><br><br>
+            <h1>Modify a Resource</h1>
 
-        <label for="keywords">Keywords</label>
-        <div class="input"><?php echo $resource_keywords; ?></div></textarea><br><br>
+            <label for="topic">Topic</label>
+            <input id="topic" class="input" type="text" name="topic" value="<?php echo $resource_topic; ?>" required /><br><br>
 
-        <label for="resource-type">Resource Type</label>
-        <div class="input"><?php echo $resource_type;?></div><br><br>
+            <label for="description">Description</label>
+            <input id="description" class="input" type="text" name="description" value="<?php echo $resource_description; ?>" required /><br><br>
 
-        <label for="link">Resourse URL</label>
-        <div class="input"><?php echo $resource_links;?></div><br><br>
+            <label for="keywords">Keywords</label>
+            <textarea rows="10" cols="50" id="keywords" class="input" type="text" name="keywords" value="<?php echo $resource_keywords; ?>" required></textarea><br><br>
 
-        <button class="home-button" onclick="location.href='delete-query.php?id=<?php echo $resource_id; ?>';"> Delete </button>
+            <label for="resource-type">Resource Type</label>
+            <select id="resource-type" class="input" name="type" required>
+                <option value="" disabled selected>Select Resource Type</option>
+                <option value="blog">Article</option>
+                <option value="image">Image</option>
+                <option value="book">Online Book</option>
+                <option value="video">Video</option>
+                <option value="website">Website</option>
+            </select><br><br>
+
+            <label for="link">Resourse URL</label>
+            <input id="link" class="input" type="url" name="link" value="<?php echo $resource_links; ?>" required /><br><br>
+
+            <input type="submit" value="Submit" class="home-button" />
+        </form>
     </div>
 
 
