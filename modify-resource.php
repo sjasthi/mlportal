@@ -62,7 +62,7 @@
             <input id="description" class="input" type="text" name="description" value="<?php echo $resource_description; ?>" required /><br><br>
 
             <label for="keywords">Keywords</label>
-            <textarea rows="10" cols="50" id="keywords" class="input" type="text" name="keywords" value="<?php echo $resource_keywords; ?>" required></textarea><br><br>
+            <textarea rows="10" cols="50" id="keywords" class="input" type="text" name="keywords" required><?php echo $resource_keywords; ?></textarea><br><br>
 
             <label for="resource-type">Resource Type</label>
             <select id="resource-type" class="input" name="type" required>
