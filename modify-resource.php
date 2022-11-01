@@ -56,13 +56,13 @@
             <h1>Modify a Resource</h1>
 
             <label for="topic">Topic</label>
-            <input id="topic" class="input" type="text" name="topic" value="<?php echo $resource_topic; ?>" required /><br><br>
+            <input id="topic" class="input" type="text" maxlength="100 "name="topic" value="<?php echo $resource_topic; ?>" required /><br><br>
 
             <label for="description">Description</label>
-            <input id="description" class="input" type="text" name="description" value="<?php echo $resource_description; ?>" required /><br><br>
+            <textarea  rows="10" cols="50" id="description" class="input" type="text" name="description" maxlength="2000" required><?php echo $resource_description; ?></textarea><br><br>
 
             <label for="keywords">Keywords</label>
-            <textarea rows="10" cols="50" id="keywords" class="input" type="text" name="keywords" required><?php echo $resource_keywords; ?></textarea><br><br>
+            <textarea rows="10" cols="50" id="keywords" class="input" type="text" maxlength="255" name="keywords" required><?php echo $resource_keywords; ?></textarea><br><br>
 
             <label for="resource-type">Resource Type</label>
             <select id="resource-type" class="input" name="type" required>
@@ -75,7 +75,7 @@
             </select><br><br>
 
             <label for="link">Resourse URL</label>
-            <input id="link" class="input" type="url" name="link" value="<?php echo $resource_links; ?>" required /><br><br>
+            <input id="link" class="input" type="url" maxlength="500" name="link" value="<?php echo $resource_links; ?>" required /><br><br>
 
             <input type="submit" value="Submit" class="home-button" />
         </form>

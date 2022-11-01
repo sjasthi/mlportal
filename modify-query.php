@@ -15,7 +15,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "UPDATE resources SET topic={$topic}, description={$description}, keywords={$keywords}, type={$type}, link={$link} WHERE id={$_GET['id']}";
+$sql = "UPDATE resources SET topic='{$topic}', description='{$description}', keywords='{$keywords}', type='{$type}', link='{$link}' WHERE id='{$_GET['id']}'";
+echo $sql;
 if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";
   } else {
