@@ -35,10 +35,6 @@
     <div class="resource-buttons">
     <a href="add-resource.php">
         <button type="button" class="general-button">Add Resource</button></a>
-        <a href="delete-resource.php">
-        <button type="button" class="general-button">Delete Resource</button></a>
-        <a href="view-resources.php">
-        <button type="button" class="general-button">View My Resources</button></a>
     </div>
     
     <table id="resourceTable" class="display" width="100%" cellspacing="0">
