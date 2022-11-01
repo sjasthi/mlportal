@@ -20,7 +20,7 @@
         include "header.php";
 
         $resource_id = $_GET["id"];
-        $resource_topic = "test";
+        $resource_topic = "";
         $resource_description = "";
         $resource_type = "";
         $resource_keywords = "";

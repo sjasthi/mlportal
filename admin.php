@@ -74,7 +74,7 @@
                             var id = o.id;
                             var htmlString = `
                     <span>
-                        <a class= "crud_button" href=index.php> Display </a>
+                        <a class= "crud_button" href=view-resources.php?id=`+id+`> Display </a>
                         <a class= "crud_button" href=modify-resource.php?id=` + id + `> Modify </a>
                         <a class= "crud_button" href=delete-resource.php?id=` + id + `> Delete </a>
                     </span>`;
