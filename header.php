@@ -6,13 +6,11 @@
       <a href="resource-list.php" rel="noreferrer noopener" class="home-link">
         Resource List
       </a>
-      <a href="about.php" rel="noreferrer noopener" class="home-link1">
-        <span class="home-text">About</span>
+      <a href="glossary.php" rel="noreferrer noopener" class="home-link1">
+        <span class="home-text">Glossary</span>
         <br />
       </a>
-      <a href="get-help.php" rel="noreferrer noopener" class="home-link2">
-        Get Help
-      </a>
+      
 
       <form action="search-results.php" method="POST">
         <label>Search</label>

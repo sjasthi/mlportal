@@ -35,8 +35,9 @@
     <?php include('header.php'); ?>
 
     <div class="resource-buttons">
-        <a href="add-resource.php">
-            <button type="button" class="general-button">Add Resource</button></a>
+    
+    <a href="add-resource.php">
+        <button type="button" class="general-button">Add Resource</button></a>
     </div>
 
     <table id="resourceTable" class="display" width="100%" cellspacing="0">

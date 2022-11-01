@@ -10,7 +10,7 @@
 <body>
 <?php include('header.php'); ?>
 
-<div class="add-resource-box">
+<div class="add-resource-box" style="margin: 0 auto;">
 <form action="resource-insert.php" method="POST">
 
     <h1>Add A Resource</h1>
