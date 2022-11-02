@@ -10,18 +10,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js" charset="utf8" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
-    <title>Delete Resource</title>
+    <title>Modify Resource</title>
 </head>
 
 <body>
     <?php
-
     if (isset($_GET["id"])) {
         require_once "connection.php";
         include "header.php";
 
         $resource_id = $_GET["id"];
-        $resource_topic = "test";
+        $resource_topic = "";
         $resource_description = "";
         $resource_type = "";
         $resource_keywords = "";
@@ -37,6 +36,7 @@
         $conn->set_charset("utf8");
 
         //create sql
+
         $sql = "SELECT * FROM resources WHERE id={$resource_id}";
         $result = $conn->query($sql);
         while ($row = mysqli_fetch_assoc($result)) {
@@ -50,24 +50,35 @@
         }
     }
     ?>
-    <div class="add-resource-box" style="display: grid;">
-        <h1>Modify a Resource</h1>
-        <label for="topic">Topic</label>
-        <div class="input"><?php echo $resource_topic; ?></div><br><br>
+    <div class="add-resource-box">
+        <form action="modify-query.php?id=<?php echo $resource_id;?>" method="POST">
 
-        <label for="description">Description</label>
-        <div class="input"><?php echo $resource_description; ?></div><br><br>
+            <h1>Modify a Resource</h1>
 
-        <label for="keywords">Keywords</label>
-        <div class="input"><?php echo $resource_keywords; ?></div></textarea><br><br>
+            <label for="topic">Topic</label>
+            <input id="topic" class="input" type="text" maxlength="100 "name="topic" value="<?php echo $resource_topic; ?>" required /><br><br>
 
-        <label for="resource-type">Resource Type</label>
-        <div class="input"><?php echo $resource_type; ?></div><br><br>
+            <label for="description">Description</label>
+            <textarea  rows="10" cols="50" id="description" class="input" type="text" name="description" maxlength="2000" required><?php echo $resource_description; ?></textarea><br><br>
 
-        <label for="link">Resourse URL</label>
-        <div class="input"><?php echo $resource_links; ?></div><br><br>
+            <label for="keywords">Keywords</label>
+            <textarea rows="10" cols="50" id="keywords" class="input" type="text" maxlength="255" name="keywords" required><?php echo $resource_keywords; ?></textarea><br><br>
 
-        <button class="home-button" onclick="location.href='delete-query.php?id=<?php echo $resource_id; ?>';"> Delete </button>
+            <label for="resource-type">Resource Type</label>
+            <select id="resource-type" class="input" name="type" required>
+                <option value="" disabled selected>Select Resource Type</option>
+                <option value="blog">Article</option>
+                <option value="image">Image</option>
+                <option value="book">Online Book</option>
+                <option value="video">Video</option>
+                <option value="website">Website</option>
+            </select><br><br>
+
+            <label for="link">Resourse URL</label>
+            <input id="link" class="input" type="url" maxlength="500" name="link" value="<?php echo $resource_links; ?>" required /><br><br>
+
+            <input type="submit" value="Submit" class="home-button" />
+        </form>
     </div>
 </body>
 

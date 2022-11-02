@@ -1,59 +1,16 @@
-<?php
-
-//check existence of id parameter before processing
-if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
-
-    require_once "connection.php";
-
-    //prepare statement
-    $sql = "SELECT * FROM resources WHERE id = 5";
-
-    if($stmt = mysqli_prepare($con, $sql)){
-        //bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "i", $param_id);
-
-        //set parameters
-        $param_id = trim($_GET["id"]);
-
-        //try to execute prepared statement
-        if(mysqli_stmt_execute($stmt)){
-            $result = mysqli_stmt_get_result($stmt);
-
-            if(mysqli_num_rows($result) == 1){
-
-                //fetch result row as array
-                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-                //retreive individual field value
-                $id = $row["id"];
-                $topic = $row["topic"];
-                $description = $row["description"];
-                $type = $row["type"];
-                $keywords = $row["keywords"];
-                $link = $row["link"];
-            }else{
-                //URL doesn't contain valid id parameter. Display error
-                header("location: index.php");
-                exit();
-            }
-        }else{
-            echo "Error! Resource Cannot Be Viewed.";
-        }
-    }
-
-    //close statement
-    mysqli_stmt_close($stmt);
-    mysqli_close($con);
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>View Resource</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="https://kit.fontawesome.com/81c2c05f29.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js" charset="utf8" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
     <style>
         .wrapper{
             width: 50%;
@@ -61,27 +18,64 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
         }
     </style>
 </head>
-<body>
+<body style="background-color: #1c1c1c">
+<?php
+
+//check existence of id parameter before processing
+if (isset($_GET["id"])) {
+    require_once "connection.php";
+    include "header.php";
+    $resource_id = $_GET["id"];
+    $resource_topic = "test";
+    $resource_description = "";
+    $resource_type = "";
+    $resource_keywords = "";
+    $resource_links = "";
+    $resource_user = "";
+
+    $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+    // establist connection with database
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    //set charset to utf-8
+    $conn->set_charset("utf8");
+
+    //create sql
+
+    $sql = "SELECT * FROM resources WHERE id={$resource_id}";
+    $result = $conn->query($sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $resource_id = $row["id"];
+        $resource_topic = $row["topic"];
+        $resource_description = $row["description"];
+        $resource_type = $row["type"];
+        $resource_keywords = $row["keywords"];
+        $resource_links = $row["link"];
+    }
+}
+?>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="mt-5 mb-3">View Resource</h1>
+                    <h1 class="mt-5 mb-3"><?php echo $resource_topic; ?></h1>
                     <div class="form-group">
-                        <label>Topic</label>
-                        <p><b><?php echo $row["topic"]; ?></b></p>
+                        <label> keywords </label>
+                        <p><b><?php echo $resource_keywords; ?></b></p>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <p><b><?php echo $row["description"]; ?></b></p>
+                        <p><b><?php echo $resource_description; ?></b></p>
                     </div>
                     <div class="form-group">
                         <label>Resource Type</label>
-                        <p><b><?php echo $row["type"]; ?></b></p>
+                        <p><b><?php echo $resource_type; ?></b></p>
                     </div>
                     <div class="form-group">
-                        <label>Resource URL</label>
-                        <p><b><?php echo $row["link"]; ?></b></p>
+                        <label>Resource</label><br>
+                        <button class="btn btn-primary" onclick="window.location.href='<?php echo $resource_links?>';"> Open </button>
+                        <iframe src="<?php echo $resource_links?>" style="height: 500px; width: 100%; margin-top: 20px;"></iframe>
                     </div>
                     <p><a href="index.php" class="btn btn-primary">Back</a></p>
                 </div>
