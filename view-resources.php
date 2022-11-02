@@ -59,10 +59,10 @@ if (isset($_GET["id"])) {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="mt-5 mb-3">View Resource</h1>
+                    <h1 class="mt-5 mb-3"><?php echo $resource_topic; ?></h1>
                     <div class="form-group">
-                        <label>Topic</label>
-                        <p><b><?php echo $resource_topic; ?></b></p>
+                        <label> keywords </label>
+                        <p><b><?php echo $resource_keywords; ?></b></p>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
@@ -73,8 +73,9 @@ if (isset($_GET["id"])) {
                         <p><b><?php echo $resource_type; ?></b></p>
                     </div>
                     <div class="form-group">
-                        <label>Resource URL</label>
-                        <p><b><?php echo $resource_links; ?></b></p>
+                        <label>Resource</label><br>
+                        <button class="btn btn-primary" onclick="window.location.href='<?php echo $resource_links?>';"> Open </button>
+                        <iframe src="<?php echo $resource_links?>" style="height: 500px; width: 100%; margin-top: 20px;"></iframe>
                     </div>
                     <p><a href="index.php" class="btn btn-primary">Back</a></p>
                 </div>
