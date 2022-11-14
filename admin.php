@@ -32,13 +32,20 @@
 </head>
 
 <body>
-    <?php include('header.php'); ?>
+    <?php
+    include('header.php');
+    if (!isset($_SESSION['role'])) {
+        echo "role not set";
+    }
+    ?>
 
     <div class="resource-buttons">
-    
-    <a href="add-resource.php">
-        <button type="button" class="general-button">Add Resource</button></a>
+
+        <a href="add-resource.php">
+            <button type="button" class="general-button">Add Resource</button></a>
     </div>
+
+    <h1> Hello <?php echo $_SESSION['displayname'] ?> </h1>
 
     <table id="resourceTable" class="display" width="100%" cellspacing="0">
         <thead>
@@ -75,18 +82,15 @@
                             var id = o.id;
                             var htmlString = `
                     <span>
-                        <a class= "crud_button" href=view-resources.php?id=`+id+`> Display </a>
+                        <a class= "crud_button" href=view-resources.php?id=` + id + `> Display </a>
                         <a class= "crud_button" href=modify-resource.php?id=` + id + `> Modify </a>
                         <a class= "crud_button" href=delete-resource.php?id=` + id + `> Delete </a>
                     </span>`;
                             return htmlString;
                         }
                     }
-
                 ]
             });
-
-
         });
     </script>
 
