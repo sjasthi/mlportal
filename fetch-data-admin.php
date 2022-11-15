@@ -11,6 +11,10 @@ $resource_keywords = "";
 $resource_links = "";
 $resource_user = "";
 
+if(isset($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'];
+}
+
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 // establist connection with database
 if ($conn->connect_error) {
@@ -21,7 +25,13 @@ $conn->set_charset("utf8");
 //create sql
 $sql = "";
 
-$sql = "SELECT * FROM resources";
+if ($_SESSION['role'] == 'instructor'){
+    $sql = "SELECT * FROM resources WHERE instructor_id = $user_id";
+}
+
+if ($_SESSION['role'] == 'admin'){
+    $sql = "SELECT * FROM resources";
+}
 
 $result = $conn->query($sql);
 while ($row = mysqli_fetch_assoc($result)) {
