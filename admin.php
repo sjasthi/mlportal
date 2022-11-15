@@ -63,7 +63,8 @@
         $(document).ready(function() {
             $('#resourceTable').dataTable({
                 "processing": true,
-                "ajax": "fetch_data.php",
+                "pageLength": 50,
+                "ajax": "fetch-data-admin.php",
                 "columns": [{
                         data: 'topic'
                     },

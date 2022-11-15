@@ -43,9 +43,20 @@
     $(document).ready(function() {
         $('#resourceTable').dataTable({
             "processing": true,
+            "pageLength": 50,
             "ajax": "fetch_data.php",
             "columns": [
-                {data: 'topic'},
+                {
+                  data: null,      
+                  "render": function(o) {
+                            var id = o.id;
+                            var topic = o.topic;
+                            var htmlString = `
+                            <a href=view-resources.php?id=` + id + `>`+topic+`</a>
+                            `;
+                            return htmlString;
+                        }
+                },
                 {data: 'description'},
                 {data: 'type'},
                 {data: 'keywords'},

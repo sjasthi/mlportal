@@ -22,11 +22,23 @@ session_start();
     <input type="submit" name="submit">
   </form>
 
-  <a href="login.php">
-    <button type="button" class="home-button button" class="login-button">Login</button></a>
+  <!-- <a href="login.php">
+    <button type="button" class="home-button button" class="login-button">Login</button></a> -->
 
   <?php
+  if (!isset($_SESSION['role'])){
+    echo '
+    <a href="login.php">
+    <button type="button" class="home-button button" class="login-button">Login</button></a>
+    ';
+  }
+
   if (isset($_SESSION['role'])) {
+    echo '
+    <a href="logout.php">
+    <button type="button" class="home-button button" class="login-button">Log out</button></a>
+    ';
+
     echo '
         <a href="admin.php">
           <button type="button" class="admin-button">Admin</button>
