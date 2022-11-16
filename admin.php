@@ -50,6 +50,7 @@
     <table id="resourceTable" class="display" width="100%" cellspacing="0">
         <thead>
             <tr>
+                <th style="color: white;">id</th>
                 <th style="color: white;">topic</th>
                 <th style="color: white;">description</th>
                 <th style="color: white;">type</th>
@@ -66,6 +67,9 @@
                 "pageLength": 50,
                 "ajax": "fetch-data-admin.php",
                 "columns": [{
+                        data: 'id'
+                    },
+                    {
                         data: 'topic'
                     },
                     {
