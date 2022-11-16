@@ -57,7 +57,8 @@ $conn->set_charset("utf8");
     <h1>Search Results</h1>
     <table id="searchedTable" class="display" width="100%" cellspacing="0">
     <thead>
-        <tr>
+        <tr> 
+            <th style="color: white;">topic</th>
             <th style="color: white;">topic</th>
             <th style="color: white;">description</th>
             <th style="color: white;">type</th>
@@ -74,7 +75,8 @@ $conn->set_charset("utf8");
             $resource_keywords = $row["keywords"];
 
             echo '<tr>
-            <td>'.$row["topic"].'</td>
+            <td>'.$row['id'].'</td>
+            <td><a href=view-resources.php?id='.$row['id'].'>'.$row["topic"].'</a></td>
             <td>'.$row["description"].'</td>
             <td>'.$row["type"].'</td>
             <td>'.$row["keywords"].'</td>
