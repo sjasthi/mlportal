@@ -13,20 +13,24 @@ session_start();
     <span class="home-text">Glossary</span>
     <br />
   </a>
-
-  <form action="search-results.php" method="POST">
+  <span>
     <label>Search</label>
-    <input type="text" name="search" value="<?php if (isset($_POST['search'])) {
-                                              echo $_POST['search'];
-                                            } ?>">
-    <input type="submit" name="submit">
-  </form>
+    <input id="searchInput" type="text" name="search" value="<?php if (isset($_POST['search'])) {
+                                                                echo $_POST['search'];
+                                                              } ?>">
+    <button id="searchButton" onclick="search()"> Submit </button>
+  </span>
 
-  <!-- <a href="login.php">
-    <button type="button" class="home-button button" class="login-button">Login</button></a> -->
+  <script>
+    function search() {
+      searchText = document.getElementById("searchInput").value;
+      searchUrl = "search-results.php?search=" + searchText;
+      window.location.href = searchUrl;
+    }
+  </script>
 
   <?php
-  if (!isset($_SESSION['role'])){
+  if (!isset($_SESSION['role'])) {
     echo '
     <a href="login.php">
     <button type="button" class="home-button button" class="login-button">Login</button></a>
