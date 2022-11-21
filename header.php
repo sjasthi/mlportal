@@ -9,6 +9,9 @@ session_start();
   <a href="resource-list.php" rel="noreferrer noopener" class="home-link">
     Resource List
   </a>
+  <a href="summary.php" rel="noreferrer noopener" class="home-link">
+    Summary
+  </a>
   <a href="glossary.php" rel="noreferrer noopener" class="home-link1">
     <span class="home-text">Glossary</span>
     <br />
