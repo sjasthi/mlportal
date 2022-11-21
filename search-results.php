@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 $conn->set_charset("utf8");
 
 $search = $_GET['search'];
-$query = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR keywords LIKE '%$search%'";
+$query = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR keywords LIKE '%$search%' OR type LIKE '%$search%'";
 
 $GLOBALS['data'] = mysqli_query($conn, $query);
 

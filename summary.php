@@ -117,7 +117,7 @@ while ($row = $intro_to_machine_learning_count_result->fetch_assoc()){
       </a></td>
 </tr>
 <tr>
-<td style="font-size: 18px">Supervised Learning</td>
+<td style="font-size: 18px">Unsupervised/Supervised Learning</td>
 <td>
         <button type="button" id="supervised_learning" class="admin-button" value="supervised" onclick="search(this)"><?php $supervised = "SELECT COUNT(id) as supervised_total FROM resources WHERE topic LIKE '%supervised%' OR keywords LIKE '%supervised%'";
 $supervised_count = mysqli_query($conn, $supervised);
@@ -129,113 +129,102 @@ while ($row = $supervised_count_result->fetch_assoc()){
       </a></td>
 </tr>
 <tr>
-<td style="font-size: 18px">Intro To Machine Learning</td>
+<td style="font-size: 18px">Python</td>
 <td>
-        <button type="button" id="intro" class="admin-button" value="intro" onclick="search(this)"><?php $intro_to_machine_learning = "SELECT COUNT(id) as intro_total FROM resources WHERE topic LIKE '%intro%' OR keywords LIKE '%intro%'";
-$intro_to_machine_learning_count = mysqli_query($conn, $intro_to_machine_learning);
-$intro_to_machine_learning_count_result = $conn->query($intro_to_machine_learning);
-if ($intro_to_machine_learning_count_result->num_rows > 0) {
-while ($row = $intro_to_machine_learning_count_result->fetch_assoc()){
-    echo $row['intro_total'];
+        <button type="button" id="python" class="admin-button" value="python" onclick="search(this)"><?php $python = "SELECT COUNT(id) as python_total FROM resources WHERE topic LIKE '%python%' OR keywords LIKE '%python%'";
+$python_count = mysqli_query($conn, $python);
+$python_count_result = $conn->query($python);
+if ($python_count_result->num_rows > 0) {
+while ($row = $python_count_result->fetch_assoc()){
+    echo $row['python_total'];
 }};?></button>
       </a></td>
 </tr>
 <tr>
-<td style="font-size: 18px">Intro To Machine Learning</td>
+<td style="font-size: 18px">Regression</td>
 <td>
-        <button type="button" id="intro" class="admin-button" value="intro" onclick="search(this)"><?php $intro_to_machine_learning = "SELECT COUNT(id) as intro_total FROM resources WHERE topic LIKE '%intro%' OR keywords LIKE '%intro%'";
-$intro_to_machine_learning_count = mysqli_query($conn, $intro_to_machine_learning);
-$intro_to_machine_learning_count_result = $conn->query($intro_to_machine_learning);
-if ($intro_to_machine_learning_count_result->num_rows > 0) {
-while ($row = $intro_to_machine_learning_count_result->fetch_assoc()){
-    echo $row['intro_total'];
+        <button type="button" id="regression" class="admin-button" value="regression" onclick="search(this)"><?php $regression = "SELECT COUNT(id) as regression_total FROM resources WHERE topic LIKE '%regression%' OR keywords LIKE '%regression%'";
+$regression_count = mysqli_query($conn, $regression);
+$regression_count_result = $conn->query($regression);
+if ($regression_count_result->num_rows > 0) {
+while ($row = $regression_count_result->fetch_assoc()){
+    echo $row['regression_total'];
 }};?></button>
       </a></td>
 </tr>
 <tr>
-<td style="font-size: 18px">Intro To Machine Learning</td>
+<td style="font-size: 18px">Neural Networks</td>
 <td>
-        <button type="button" id="intro" class="admin-button" value="intro" onclick="search(this)"><?php $intro_to_machine_learning = "SELECT COUNT(id) as intro_total FROM resources WHERE topic LIKE '%intro%' OR keywords LIKE '%intro%'";
-$intro_to_machine_learning_count = mysqli_query($conn, $intro_to_machine_learning);
-$intro_to_machine_learning_count_result = $conn->query($intro_to_machine_learning);
-if ($intro_to_machine_learning_count_result->num_rows > 0) {
-while ($row = $intro_to_machine_learning_count_result->fetch_assoc()){
-    echo $row['intro_total'];
+        <button type="button" id="nn" class="admin-button" value="nn" onclick="search(this)"><?php $nn = "SELECT COUNT(id) as nn_total FROM resources WHERE topic LIKE '%neural%' OR keywords LIKE '%neural%'";
+$nn_count = mysqli_query($conn, $nn);
+$nn_count_result = $conn->query($nn);
+if ($nn_count_result->num_rows > 0) {
+while ($row = $nn_count_result->fetch_assoc()){
+    echo $row['nn_total'];
 }};?></button>
       </a></td>
 </tr>
 <tr>
-<td style="font-size: 18px">Intro To Machine Learning</td>
+<td style="font-size: 18px">Decision Trees</td>
 <td>
-        <button type="button" id="intro" class="admin-button" value="intro" onclick="search(this)"><?php $intro_to_machine_learning = "SELECT COUNT(id) as intro_total FROM resources WHERE topic LIKE '%intro%' OR keywords LIKE '%intro%'";
-$intro_to_machine_learning_count = mysqli_query($conn, $intro_to_machine_learning);
-$intro_to_machine_learning_count_result = $conn->query($intro_to_machine_learning);
-if ($intro_to_machine_learning_count_result->num_rows > 0) {
-while ($row = $intro_to_machine_learning_count_result->fetch_assoc()){
-    echo $row['intro_total'];
+        <button type="button" id="dt" class="admin-button" value="dt" onclick="search(this)"><?php $dt = "SELECT COUNT(id) as dt_total FROM resources WHERE topic LIKE '%decision tree%' OR keywords LIKE '%decision tree%'";
+$dt_count = mysqli_query($conn, $dt);
+$dt_count_result = $conn->query($dt);
+if ($dt_count_result->num_rows > 0) {
+while ($row = $dt_count_result->fetch_assoc()){
+    echo $row['dt_total'];
 }};?></button>
       </a></td>
 </tr>
 <tr>
-<td style="font-size: 18px">Intro To Machine Learning</td>
+<td style="font-size: 18px">Applications</td>
 <td>
-        <button type="button" id="intro" class="admin-button" value="intro" onclick="search(this)"><?php $intro_to_machine_learning = "SELECT COUNT(id) as intro_total FROM resources WHERE topic LIKE '%intro%' OR keywords LIKE '%intro%'";
-$intro_to_machine_learning_count = mysqli_query($conn, $intro_to_machine_learning);
-$intro_to_machine_learning_count_result = $conn->query($intro_to_machine_learning);
-if ($intro_to_machine_learning_count_result->num_rows > 0) {
-while ($row = $intro_to_machine_learning_count_result->fetch_assoc()){
-    echo $row['intro_total'];
+        <button type="button" id="apps" class="admin-button" value="apps" onclick="search(this)"><?php $apps = "SELECT COUNT(id) as apps_total FROM resources WHERE topic LIKE '%application%' OR keywords LIKE '%application%'";
+$apps_count = mysqli_query($conn, $apps);
+$apps_count_result = $conn->query($apps);
+if ($apps_count_result->num_rows > 0) {
+while ($row = $apps_count_result->fetch_assoc()){
+    echo $row['apps_total'];
 }};?></button>
       </a></td>
 </tr>
 <tr>
-<td style="font-size: 18px">Intro To Machine Learning</td>
+<td style="font-size: 18px">Videos</td>
 <td>
-        <button type="button" id="intro" class="admin-button" value="intro" onclick="search(this)"><?php $intro_to_machine_learning = "SELECT COUNT(id) as intro_total FROM resources WHERE topic LIKE '%intro%' OR keywords LIKE '%intro%'";
-$intro_to_machine_learning_count = mysqli_query($conn, $intro_to_machine_learning);
-$intro_to_machine_learning_count_result = $conn->query($intro_to_machine_learning);
-if ($intro_to_machine_learning_count_result->num_rows > 0) {
-while ($row = $intro_to_machine_learning_count_result->fetch_assoc()){
-    echo $row['intro_total'];
+        <button type="button" id="video" class="admin-button" value="video" onclick="search(this)"><?php $video = "SELECT COUNT(id) as video_total FROM resources WHERE type LIKE '%video%' OR keywords LIKE '%video%'";
+$video_count = mysqli_query($conn, $video);
+$video_count_result = $conn->query($video);
+if ($video_count_result->num_rows > 0) {
+while ($row = $video_count_result->fetch_assoc()){
+    echo $row['video_total'];
 }};?></button>
       </a></td>
 </tr>
 <tr>
-<td style="font-size: 18px">Intro To Machine Learning</td>
+<td style="font-size: 18px">Websites</td>
 <td>
-        <button type="button" id="intro" class="admin-button" value="intro" onclick="search(this)"><?php $intro_to_machine_learning = "SELECT COUNT(id) as intro_total FROM resources WHERE topic LIKE '%intro%' OR keywords LIKE '%intro%'";
-$intro_to_machine_learning_count = mysqli_query($conn, $intro_to_machine_learning);
-$intro_to_machine_learning_count_result = $conn->query($intro_to_machine_learning);
-if ($intro_to_machine_learning_count_result->num_rows > 0) {
-while ($row = $intro_to_machine_learning_count_result->fetch_assoc()){
-    echo $row['intro_total'];
+        <button type="button" id="website" class="admin-button" value="website" onclick="search(this)"><?php $website = "SELECT COUNT(id) as website_total FROM resources WHERE type LIKE '%website%' OR keywords LIKE '%website%'";
+$website_count = mysqli_query($conn, $website);
+$website_count_result = $conn->query($website);
+if ($website_count_result->num_rows > 0) {
+while ($row = $website_count_result->fetch_assoc()){
+    echo $row['website_total'];
 }};?></button>
       </a></td>
 </tr>
 <tr>
-<td style="font-size: 18px">Intro To Machine Learning</td>
+<td style="font-size: 18px">Blogs</td>
 <td>
-        <button type="button" id="intro" class="admin-button" value="intro" onclick="search(this)"><?php $intro_to_machine_learning = "SELECT COUNT(id) as intro_total FROM resources WHERE topic LIKE '%intro%' OR keywords LIKE '%intro%'";
-$intro_to_machine_learning_count = mysqli_query($conn, $intro_to_machine_learning);
-$intro_to_machine_learning_count_result = $conn->query($intro_to_machine_learning);
-if ($intro_to_machine_learning_count_result->num_rows > 0) {
-while ($row = $intro_to_machine_learning_count_result->fetch_assoc()){
-    echo $row['intro_total'];
+        <button type="button" id="blog" class="admin-button" value="blog" onclick="search(this)"><?php $blog = "SELECT COUNT(id) as blog_total FROM resources WHERE type LIKE '%blog%' OR keywords LIKE '%blog%'";
+$blog_count = mysqli_query($conn, $blog);
+$blog_count_result = $conn->query($blog);
+if ($blog_count_result->num_rows > 0) {
+while ($row = $blog_count_result->fetch_assoc()){
+    echo $row['blog_total'];
 }};?></button>
       </a></td>
 </tr>
-<tr>
-<td style="font-size: 18px">Intro To Machine Learning</td>
-<td>
-        <button type="button" id="intro" class="admin-button" value="intro" onclick="search(this)"><?php $intro_to_machine_learning = "SELECT COUNT(id) as intro_total FROM resources WHERE topic LIKE '%intro%' OR keywords LIKE '%intro%'";
-$intro_to_machine_learning_count = mysqli_query($conn, $intro_to_machine_learning);
-$intro_to_machine_learning_count_result = $conn->query($intro_to_machine_learning);
-if ($intro_to_machine_learning_count_result->num_rows > 0) {
-while ($row = $intro_to_machine_learning_count_result->fetch_assoc()){
-    echo $row['intro_total'];
-}};?></button>
-      </a></td>
-</tr>
+
 </tbody>
 </table>
 
