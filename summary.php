@@ -10,32 +10,6 @@ if ($conn->connect_error) {
 //set charset to utf-8
 $conn->set_charset("utf8");
 
-
-
-//$supervised = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
-//$supervised_count =
-//$unsupervised = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
-//$unsupervised_count =
-//$python = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
-//$python_count =
-//$linear_regression = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
-//$linear_regression_count =
-//$neural_networks = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
-//$neural_networks_count =
-//$naive_bayes = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
-//$naive_bayes_count =
-//$k_means = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
-//$k_means_count =
-//$decision_trees = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
-//$decision_trees_count =
-//$logistic_regression = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
-//$logistic_regression_count =
-//$applications = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
-//$applications_count = 
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -155,9 +129,9 @@ while ($row = $regression_count_result->fetch_assoc()){
 <tr>
 <td style="font-size: 18px">Neural Networks</td>
 <td>
-        <button type="button" id="nn" class="admin-button" value="nn" onclick="search(this)"><?php $nn = "SELECT COUNT(id) as nn_total FROM resources WHERE topic LIKE '%neural%' OR keywords LIKE '%neural%'";
-$nn_count = mysqli_query($conn, $nn);
-$nn_count_result = $conn->query($nn);
+        <button type="button" id="neural" class="admin-button" value="neural" onclick="search(this)"><?php $neural = "SELECT COUNT(id) as nn_total FROM resources WHERE topic LIKE '%neural%' OR keywords LIKE '%neural%'";
+$nn_count = mysqli_query($conn, $neural);
+$nn_count_result = $conn->query($neural);
 if ($nn_count_result->num_rows > 0) {
 while ($row = $nn_count_result->fetch_assoc()){
     echo $row['nn_total'];
@@ -167,9 +141,9 @@ while ($row = $nn_count_result->fetch_assoc()){
 <tr>
 <td style="font-size: 18px">Decision Trees</td>
 <td>
-        <button type="button" id="dt" class="admin-button" value="dt" onclick="search(this)"><?php $dt = "SELECT COUNT(id) as dt_total FROM resources WHERE topic LIKE '%decision tree%' OR keywords LIKE '%decision tree%'";
-$dt_count = mysqli_query($conn, $dt);
-$dt_count_result = $conn->query($dt);
+        <button type="button" id="decision" class="admin-button" value="decision" onclick="search(this)"><?php $decision = "SELECT COUNT(id) as dt_total FROM resources WHERE topic LIKE '%decision tree%' OR keywords LIKE '%decision tree%'";
+$dt_count = mysqli_query($conn, $decision);
+$dt_count_result = $conn->query($decision);
 if ($dt_count_result->num_rows > 0) {
 while ($row = $dt_count_result->fetch_assoc()){
     echo $row['dt_total'];
@@ -179,9 +153,9 @@ while ($row = $dt_count_result->fetch_assoc()){
 <tr>
 <td style="font-size: 18px">Applications</td>
 <td>
-        <button type="button" id="apps" class="admin-button" value="apps" onclick="search(this)"><?php $apps = "SELECT COUNT(id) as apps_total FROM resources WHERE topic LIKE '%application%' OR keywords LIKE '%application%'";
-$apps_count = mysqli_query($conn, $apps);
-$apps_count_result = $conn->query($apps);
+        <button type="button" id="application" class="admin-button" value="application" onclick="search(this)"><?php $application = "SELECT COUNT(id) as apps_total FROM resources WHERE topic LIKE '%applications%' OR keywords LIKE '%applications%'";
+$apps_count = mysqli_query($conn, $application);
+$apps_count_result = $conn->query($application);
 if ($apps_count_result->num_rows > 0) {
 while ($row = $apps_count_result->fetch_assoc()){
     echo $row['apps_total'];
