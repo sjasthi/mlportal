@@ -74,7 +74,7 @@ if (isset($_GET["id"])) {
                     </div>
                     <div class="form-group">
                         <label>Resource</label><br>
-                        <button class="btn btn-primary" onclick="window.location.href='<?php echo $resource_links?>';"> Open </button>
+                        <button class="btn btn-primary" onclick="window.open('<?php echo $resource_links?>');"> Open </button>
                         <iframe src="<?php echo $resource_links?>" style="height: 500px; width: 100%; margin-top: 20px;"></iframe>
                     </div>
                     <p><a href="index.php" class="btn btn-primary">Back</a></p>
