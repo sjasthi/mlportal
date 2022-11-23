@@ -3,7 +3,7 @@ require_once "connection.php";
 include "header.php";
 
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-// establist connection with database
+// establish connection with database
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 $conn->set_charset("utf8");
 
 $search = $_GET['search'];
-$query = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR description LIKE '%$search%' OR keywords LIKE '%$search%'";
+$query = "SELECT * FROM resources WHERE topic LIKE '%$search%' OR keywords LIKE '%$search%' OR type LIKE '%$search%'";
 
 $GLOBALS['data'] = mysqli_query($conn, $query);
 
@@ -57,11 +57,11 @@ $GLOBALS['data'] = mysqli_query($conn, $query);
 <table id="searchedTable" class="display" width="100%" cellspacing="0">
   <thead>
     <tr>
-      <th style="color: white;">topic</th>
-      <th style="color: white;">topic</th>
-      <th style="color: white;">description</th>
-      <th style="color: white;">type</th>
-      <th style="color: white;">keywords</th>
+      <th style="color: white;">ID</th>
+      <th style="color: white;">Topic</th>
+      <th style="color: white;">Description</th>
+      <th style="color: white;">Type</th>
+      <th style="color: white;">Keywords</th>
     </tr>
   </thead>
   <tbody>
