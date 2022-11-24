@@ -25,7 +25,7 @@ $resource_topic = "";
 $resource_description = "";
 $resource_type = "";
 $resource_keywords = "";
-$resource_Links = "";
+$resource_links = "";
 $resource_userID = "";
 
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
@@ -45,12 +45,17 @@ $result = $conn->query($sql);
 <main>
 <?php
 while ($row = mysqli_fetch_assoc($result)) {
+  if($row["thumbnail"] == NULL){
+    $resource_tn = "https://techbullion.com/wp-content/uploads/2021/05/technology-5917370_1280.png";
+  } else {
+    $resource_tn = $row["link"]; ;
+  }
  ?>
         <div class="card">
           <div class="card-item">
-              <img src="<?php echo $row["link"]; ?>">
+              <img src=<?php echo $resource_tn ?> style="width: 250px;">
               <p class="topic_name"><?php echo $row["topic"]; ?></p>
-              <button class="home-button" href="view-resources.php?id=` + id + `> + topic + ">Open Resource</button>
+              <button class="home-button" href=<?php echo'view-resources.php?id='. $row["id"];?>>Open Resource</button>
               </div>
             </div></br>
             <?php

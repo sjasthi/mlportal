@@ -22,12 +22,13 @@ main .card{
   max-width: 300px;
   flex: 1 1 210px;
   text-align: center;
-  height: 400px;
+  height: 350px;
   border: 1px solid black;
   box-shadow:2px 2px black;
   margin: 20px;
   background-color:#353839;
   padding: 10px;
+  vertical-align: auto;
 
 }
 
