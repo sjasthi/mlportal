@@ -12,9 +12,7 @@
 <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js" charset="utf8" type="text/javascript"></script>
 
   <title>Machine Learning Portal</title>
-<style>
 
-</style>
 </head>
 <body>
 
@@ -48,14 +46,15 @@ while ($row = mysqli_fetch_assoc($result)) {
   if($row["thumbnail"] == NULL){
     $resource_tn = "https://techbullion.com/wp-content/uploads/2021/05/technology-5917370_1280.png";
   } else {
-    $resource_tn = $row["link"]; ;
+    $resource_tn = $row["thumbnail"]; ;
   }
  ?>
+ <a style="text-decoration: none" href=<?php echo'view-resources.php?id='. $row["id"];?>>
         <div class="card">
           <div class="card-item">
               <img src=<?php echo $resource_tn ?> style="width: 250px;">
-              <p class="topic_name"><?php echo $row["topic"]; ?></p>
-              <button class="home-button" href=<?php echo'view-resources.php?id='. $row["id"];?>>Open Resource</button>
+              <p style="font-size: 20px; padding:1em;" class="topic_name"><?php echo $row["topic"]; ?></p>
+              </a>
               </div>
             </div></br>
             <?php
