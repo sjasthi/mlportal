@@ -43,6 +43,7 @@ main .card:hover{
   text-transform:uppercase;
   vertical-align:bottom;
   justify-content: space-between;
+  font-weight: 400;
   
 }
 
