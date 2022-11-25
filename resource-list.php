@@ -31,6 +31,7 @@
 
 <?php include "header.php" ?>
 
+<h1 style="text-align: center;">List of Resources</h1>
 
 <table id="resourceTable" class="display" width="100%" cellspacing="0">
   <thead>
