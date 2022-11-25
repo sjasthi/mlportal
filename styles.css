@@ -425,7 +425,8 @@ i{
   .home-header {
 
     background-color:#1c1c1c;
-    margin: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
     width: 100%;
     display: flex;
     max-width: var(--dl-size-size-maxwidth);
