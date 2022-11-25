@@ -34,13 +34,66 @@ if ($conn->connect_error) {
 //set charset to utf-8
 $conn->set_charset("utf8");
 //create sql
+
+
 $sql = "SELECT * FROM resources ORDER BY RAND()";
 $result = $conn->query($sql);
+
+if(isset($_POST['filter_option'])){
+if($_POST['filter_option'] == 'intro'){
+  $sql = "SELECT * FROM resources WHERE topic LIKE '%intro%' OR keywords LIKE '%intro%'";
+  $result = $conn->query($sql);
+}else if($_POST['filter_option'] == 'super_unsuper'){
+  $sql = "SELECT * FROM resources WHERE topic LIKE '%supervised%' OR keywords LIKE '%supervised%'";
+  $result = $conn->query($sql);
+}else if($_POST['filter_option'] == 'python'){
+  $sql = "SELECT * FROM resources WHERE topic LIKE '%python%' OR keywords LIKE '%python%'";
+  $result = $conn->query($sql);
+}else if($_POST['filter_option'] == 'regression'){
+  $sql = "SELECT * FROM resources WHERE topic LIKE '%regression%' OR keywords LIKE '%regression%'";
+  $result = $conn->query($sql);
+}else if($_POST['filter_option'] == 'neural'){
+  $sql = "SELECT * FROM resources WHERE topic LIKE '%neural%' OR keywords LIKE '%neural%'";
+  $result = $conn->query($sql);
+}else if($_POST['filter_option'] == 'decision'){
+  $sql = "SELECT * FROM resources WHERE topic LIKE '%decision%' OR keywords LIKE '%decision%'";
+  $result = $conn->query($sql);
+}else if($_POST['filter_option'] == 'applications'){
+  $sql = "SELECT * FROM resources WHERE topic LIKE '%applications%' OR keywords LIKE '%applications%'";
+  $result = $conn->query($sql);
+}else if($_POST['filter_option'] == 'videos'){
+  $sql = "SELECT * FROM resources WHERE type LIKE '%video%'";
+  $result = $conn->query($sql);
+}else if($_POST['filter_option'] == 'websites'){
+  $sql = "SELECT * FROM resources WHERE type LIKE '%website%'";
+  $result = $conn->query($sql);
+}else if($_POST['filter_option'] == 'blogs'){
+  $sql = "SELECT * FROM resources WHERE type LIKE '%blog%'";
+  $result = $conn->query($sql);
+}
+}
+
 ?>
 
 <h1 style="text-align:center">Welcome To The Machine Learning Portal</h1>
 
+<form name="resource_filter" method="POST" style="text-align: center;">
+  <select name="filter_option" id="filter_option" onchange="this.form.submit()">
+    <option value="all" selected="selected">Filter Resources</option>
+    <option value="intro">Intro To Machine Learning</option>
+    <option value="super_unsuper">Supervised & Unsupervised</option>
+    <option value="python">Python</option>
+    <option value="regression">Regression</option>
+    <option value="neural">Neural Networks</option>
+    <option value="decision">Decision Trees</option>
+    <option value="applications">Applications</option>
+    <option value="videos">Videos</option>
+    <option value="websites">Websites</option>
+    <option value="blogs">Blogs</option>
+  </select>
+
 <main>
+
 <?php
 while ($row = mysqli_fetch_assoc($result)) {
   if($row["thumbnail"] == NULL){
