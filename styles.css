@@ -14,7 +14,7 @@ main{
   margin: 30px auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content:flex-start;
   margin: auto;
 }
 
@@ -24,16 +24,27 @@ main .card{
   text-align: center;
   height: 350px;
   border: 1px solid black;
+  border-radius: 10px;
   box-shadow:2px 2px black;
   margin: 20px;
   background-color:#353839;
   padding: 15px;
-  vertical-align: auto;
+  justify-content: space-between;
+  vertical-align: bottom;
 
 }
 
 main .card:hover{
-  box-shadow: 2px 2px #f7b733;
+  box-shadow: 2px 2px #4abdac;
+}
+
+.resource_type{
+  background-color:#f7b733;
+  text-transform:uppercase;
+  vertical-align:bottom;
+  justify-content: space-between;
+  font-weight: 400;
+  
 }
 
 
