@@ -36,6 +36,8 @@ main .card{
 
 main .card:hover{
   box-shadow: 2px 2px #4abdac;
+  transform: scale(1.1);
+  transition: all .2s ease-in-out;
 }
 
 .resource_type{

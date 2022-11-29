@@ -106,7 +106,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         <div class="card">
           <div class="card-item">
           <p style="font-size: 14px;" class="resource_type"><?php echo $row["type"]; ?></p>
-              <img src=<?php echo $resource_tn ?> style="width: 250px;">
+              <img src=<?php echo $resource_tn ?> style="width: 250px; height: 180px;">
               <p style="font-size: 20px; padding:1em;" class="topic_name"><?php echo $row["topic"]; ?></p>
               
               </a>
