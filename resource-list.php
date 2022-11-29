@@ -26,12 +26,42 @@
     .dataTables_wrapper .dataTables_filter {
       color: white;
     }
+
+    .crud_button {
+      font: bold 11px Arial;
+      text-decoration: none;
+      background-color: #EEEEEE;
+      color: #333333;
+      padding: 2px 6px 2px 6px;
+      border-top: 1px solid #CCCCCC;
+      border-right: 1px solid #333333;
+      border-bottom: 1px solid #333333;
+      border-left: 1px solid #CCCCCC;
+      margin: 10px;
+    }
+
+    .crud_button :hover {
+      color: #bdbdbd;
+    }
   </style>
 </head>
 
 <?php include "header.php" ?>
 
 <h1 style="text-align: center;">List of Resources</h1>
+
+<?php
+if (isset($_SESSION['role'])) {
+  echo ' <div class="resource-buttons">
+
+  <a href="add-resource.php">
+      <button type="button" class="general-button">Add Resource</button></a>
+</div>
+
+<h1> Hello '.$_SESSION["displayname"].' </h1>';
+}
+
+?>
 
 <table id="resourceTable" class="display" width="100%" cellspacing="0">
   <thead>
@@ -41,6 +71,7 @@
       <th style="color: white;">description</th>
       <th style="color: white;">type</th>
       <th style="color: white;">keywords</th>
+      <th style="color: white;"></th>
     </tr>
   </thead>
 </table>
@@ -73,6 +104,25 @@
         {
           data: 'keywords'
         },
+        {
+          data: null,
+          "render": function(o) {
+            var id = o.id;
+            var resource_creator = o.instructor_id;
+            var user_id = '<?php echo $_SESSION['user_id']; ?>';
+            var user_role = '<?php echo $_SESSION['role']; ?>';
+            var htmlString = '';
+            if (user_role == 'admin' || user_id == resource_creator) {
+              htmlString = `
+                              <span>
+                                  <a class= "crud_button" href=view-resources.php?id=` + id + `> Display </a>
+                                  <a class= "crud_button" href=modify-resource.php?id=` + id + `> Modify </a>
+                                  <a class= "crud_button" href=delete-resource.php?id=` + id + `> Delete </a>
+                              </span>`;
+            }
+            return htmlString;
+          }
+        }
       ]
     });
   });
