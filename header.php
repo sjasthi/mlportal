@@ -45,12 +45,6 @@ session_start();
     <a href="logout.php">
     <button type="button" class="home-button button" class="login-button">Log out</button></a>
     ';
-
-    echo '
-        <a href="admin.php">
-          <button type="button" class="admin-button">Admin</button>
-        </a>
-        ';
   }
   ?>
 
