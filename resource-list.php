@@ -58,7 +58,7 @@ if (isset($_SESSION['role'])) {
       <button type="button" class="general-button">Add Resource</button></a>
 </div>
 
-<h1> Hello '.$_SESSION["displayname"].' </h1>';
+<h1> Hello ' . $_SESSION["displayname"] . ' </h1>';
 }
 
 ?>
@@ -109,8 +109,8 @@ if (isset($_SESSION['role'])) {
           "render": function(o) {
             var id = o.id;
             var resource_creator = o.instructor_id;
-            var user_id = '<?php echo $_SESSION['user_id']; ?>';
-            var user_role = '<?php echo $_SESSION['role']; ?>';
+            var user_id = '<?php if (isset($_SESSION['user_id'])) echo $_SESSION['user_id']; ?>';
+            var user_role = '<?php if (isset($_SESSION['role'])) echo $_SESSION['role']; ?>';
             var htmlString = '';
             if (user_role == 'admin' || user_id == resource_creator) {
               htmlString = `
