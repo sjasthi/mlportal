@@ -95,8 +95,13 @@ if($_POST['filter_option'] == 'intro'){
 <main>
 
 <?php
+require "fetch-thumbnail.php";
 while ($row = mysqli_fetch_assoc($result)) {
-  if($row["thumbnail"] == NULL){
+  if($row['type'] == 'video'){
+    $url = $row['link'];
+    $resource_tn = getImg($url);
+  }
+  elseif($row["thumbnail"] == NULL){
     $resource_tn = "https://techbullion.com/wp-content/uploads/2021/05/technology-5917370_1280.png";
   } else {
     $resource_tn = $row["thumbnail"]; ;
