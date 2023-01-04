@@ -4,6 +4,50 @@ label{
   font-size: 1.2em;
 }
 
+.grid-container{
+  display: grid;
+}
+
+main{
+  max-width: 1500px;
+  width: 95%;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:flex-start;
+  margin: auto;
+}
+
+main .card{
+  max-width: 300px;
+  flex: 1 1 210px;
+  text-align: center;
+  height: 350px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow:2px 2px black;
+  margin: 20px;
+  background-color:#353839;
+  padding: 15px;
+  justify-content: space-between;
+  vertical-align: bottom;
+
+}
+
+main .card:hover{
+  box-shadow: 2px 2px #4abdac;
+  transform: scale(1.1);
+  transition: all .2s ease-in-out;
+}
+
+.resource_type{
+  background-color:#f7b733;
+  text-transform:uppercase;
+  vertical-align:bottom;
+  justify-content: space-between;
+  font-weight: 400;
+  
+}
 
 
 
@@ -383,7 +427,8 @@ i{
   .home-header {
 
     background-color:#1c1c1c;
-    margin: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
     width: 100%;
     display: flex;
     max-width: var(--dl-size-size-maxwidth);

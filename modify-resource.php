@@ -66,12 +66,12 @@
 
             <label for="resource-type">Resource Type</label>
             <select id="resource-type" class="input" name="type" required>
-                <option value="" disabled selected>Select Resource Type</option>
-                <option value="blog">Article</option>
-                <option value="image">Image</option>
-                <option value="book">Online Book</option>
-                <option value="video">Video</option>
-                <option value="website">Website</option>
+                <option value="" disabled>Select Resource Type</option>
+                <option value="blog" <?php if($resource_type == "blog") echo 'selected'?>>Article</option>
+                <option value="image" <?php if($resource_type == "image") echo 'selected'?>>Image</option>
+                <option value="book" <?php if($resource_type == "book") echo 'selected'?>>Online Book</option>
+                <option value="video" <?php if($resource_type == "video") echo 'selected'?>>Video</option>
+                <option value="website" <?php if($resource_type == "website") echo 'selected'?>>Website</option>
             </select><br><br>
 
             <label for="link">Resourse URL</label>
